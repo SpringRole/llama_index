@@ -44,7 +44,7 @@ def run_async_tasks(
             pass
 
     async def _gather() -> List[Any]:
-        return await asyncio.gather(*tasks_to_execute)
+        return await asyncio.gather(*tasks_to_execute, return_exceptions=True)
 
     outputs: List[Any] = asyncio.run(_gather())
     return outputs
